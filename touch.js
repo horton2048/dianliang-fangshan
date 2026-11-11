@@ -2,6 +2,7 @@
 (function () {
   const coarse = matchMedia('(pointer: coarse)').matches || 'ontouchstart' in window;
   if (coarse) document.documentElement.classList.add('coarse');
+  addEventListener('touchstart', () => document.documentElement.classList.add('coarse'), { once: true, passive: true });
   const joy = document.getElementById('joy'), knob = document.getElementById('knob'); let jid = null;
   function upd(e) {
     const r = joy.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;

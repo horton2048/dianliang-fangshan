@@ -316,7 +316,7 @@
     if (S.dialog) S.dialog.laid = false;
   }
   addEventListener('resize', resize); resize();
-  cvs.addEventListener('pointerdown', () => { AUDIO.init(); if (S.mode === 'title') pressed.push('A'); });
+  cvs.addEventListener('pointerdown', () => { AUDIO.init(); try{window.focus();}catch(e){} pressed.push('A'); });
 
   function handleUI(inp) {
     for (const k of inp.pressed) {
